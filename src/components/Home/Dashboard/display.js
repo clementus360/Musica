@@ -37,7 +37,7 @@ export const Display = () => {
 	<div className="bg-bluish w-full h-[60vh] sm:w-7/12 sm:h-[50vh] rounded-3xl sm:rounded-4xl overflow-hidden sm:grid grid-cols-2 p-8 sm:p-0">
 		<div className="flex flex-col justify-center gap-8 sm:gap-16 xl:gap-20 2xl:gap-32 sm:ml-16">
 			<p className="font-light text-xs xs:text-sm 2xl:text-xl 4xl:text-3xl">Current playlist</p>
-			<div className="flex flex-col gap-2 mt-40 xs:mt-[56vw] sm:mt-0">
+			<div className="flex flex-col gap-2 mt-40 xs:mt-[50vw] sm:mt-0">
 				<h1 className="font-bold text-3xl xs:text-4xl 2xl:text-6xl">R & B Hits</h1>
 				<p className="font-light text-xs xs:text-sm 2xl:text-xl 4xl:text-3xl">All mine, Lie again, Pretty call me everyday, Out of time, No love, Bad habit, and so much more</p>
 			</div>
@@ -46,7 +46,7 @@ export const Display = () => {
 					{displayLikes(profiles)}
 				</div>
 				<HeartIcon />
-				<p className="font-light text-xs xs:text-sm 2xl:text-xl 4xl:text-3xl">33 Likes</p>
+				<p className="font-light text-xs xs:text-sm 2xl:text-xl 4xl:text-3xl">33k Likes</p>
 			</div>
 		</div>
 		<div className="relative">

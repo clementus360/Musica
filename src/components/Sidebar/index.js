@@ -8,14 +8,9 @@ import { ProfileIcon } from "./src/profileIcon";
 import { RadioIcon } from "./src/radioIcon";
 import { VideosIcon } from "./src/videosIcon";
 
-const size = {
-	width: 25,
-	height: 25
-}
-
 export const Sidebar = () => {
   return (
-    <section className="fixed hidden sm:flex top-0 flex-col gap-10 2xl:gap-12 3xl:gap-14 items-center w-max p-6">
+    <section className="z-40 fixed hidden sm:flex top-0 flex-col gap-10 2xl:gap-12 3xl:gap-14 items-center w-max p-6">
       <div>
 		<Logo />
 	  </div>
