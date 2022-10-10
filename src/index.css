@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  height: 100vh;
+  background: linear-gradient(#1D2123, #1A1E1F);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: Quicksand;
+  color: white;
+}
+
+@font-face {
+  font-family: Quicksand;
+  font-weight: 700;
+  src: url('./components/fonts/Quicksand-Bold.ttf');
+}
+@font-face {
+  font-family: Quicksand;
+  font-weight: 300;
+  src: url('./components/fonts/Quicksand-Light.ttf');
+}
+@font-face {
+  font-family: Quicksand;
+  font-weight: 500;
+  src: url('./components/fonts/Quicksand-Medium.ttf');
+}
+@font-face {
+  font-family: Quicksand;
+  fonnt-weight: 400;
+  src: url('./components/fonts/Quicksand-Regular.ttf');
+}
+
+@font-face {
+  font-family: Quicksand;
+  font-weight: 600;
+  src: url('./components/fonts/Quicksand-SemiBold.ttf');
+}
