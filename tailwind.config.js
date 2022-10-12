@@ -11,7 +11,8 @@ module.exports = {
       secondary: '#FACD66',
       accent: '#9CBCBB',
       redish: '#E5524A',
-      bluish: '#609EAF'
+      bluish: '#609EAF',
+      white: '#FFFFFF'
     },
     fontFamily: {
       Quicksand: ['Quicksand', 'sans-serif'],

@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 body {
-  height: 100vh;
   background: linear-gradient(#1D2123, #1A1E1F);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  font-family: Quicksand;
-  color: white;
+  @apply w-screen h-max sm:h-screen bg-no-repeat pb-24 font-Quicksand text-white
 }
 
 @font-face {

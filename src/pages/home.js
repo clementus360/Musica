@@ -4,7 +4,7 @@ import { Popular } from '../components/Home/Popular'
 
 export const Home = () => {
   return (
-	<div className='mt-24 w-11/12 m-auto sm:ml-32 2xl:mt-40 2xl:ml-44'>
+	<div className='flex flex-col gap-8 w-screen overflow-hidden ml-0 mt-24 m-auto sm:pl-32 2xl:mt-40 2xl:pl-44'>
 		<Dashboard />
 		<NewReleases />
 		<Popular />
