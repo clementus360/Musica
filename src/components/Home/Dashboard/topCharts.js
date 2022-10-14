@@ -3,7 +3,7 @@ import { ChartCard } from "./chartCard"
 const displayCharts = (charts) => {
   return charts.map((chart) => {
     return (
-      <ChartCard details={chart} />
+      <ChartCard key={chart.id} details={chart} />
     );
   });
 };

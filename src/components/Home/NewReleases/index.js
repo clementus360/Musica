@@ -43,7 +43,7 @@ export const NewReleases = () => {
   const displaySongs = (songs) => {
     return songs.map((song) => {
       return (
-        <SongCard song={song} />
+        <SongCard key={song.id} song={song} />
       );
     });
   };
@@ -52,7 +52,7 @@ export const NewReleases = () => {
 	<section  className="w-screen  overflow-hidden flex flex-col gap-4">
     <h1 className="font-bold text-2xl ml-4 sm:ml-0 2xl:text-3xl 4xl:text-4xl">New releases</h1>
     <div className="w-full ml-4 sm:ml-0 overflow-scroll">
-      <div className="flex flex-row gap-8 w-max">
+      <div className="flex flex-row gap-8 w-max pr-8">
         {displaySongs(releases)}
       </div>
     </div>

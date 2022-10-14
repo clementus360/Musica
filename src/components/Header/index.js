@@ -4,7 +4,7 @@ import { SearchIcon } from "./src/searchIcon"
 
 export const Header = () => {
   return (
-	<section className="fixed flex gap-56 bg-primary sm:gap-4 w-full justify-around items-center sm:justify-start top-0 sm:pl-32 pt-7 pb-6 2xl:pl-44 2xl:pt-9 items-center z-30">
+	<section className="fixed flex gap-56 bg-primary sm:gap-4 w-full justify-around sm:justify-start top-0 sm:pl-32 pt-7 pb-6 2xl:pl-44 2xl:pt-9 items-center z-30">
 		<div className="flex gap-4 sm:hidden">
 			<MenuIcon />
 			<Logo />

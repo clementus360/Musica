@@ -3,7 +3,6 @@ import image from "./src/Pexels Photo by Eric Esma.png";
 import { HeartIcon } from "./src/heartIcon";
 
 export const Display = (props) => {
-	console.log(props.pl)
 	const playlist = props.playlist
   const displayLikes = (profiles) => {
     return profiles.map((profile) => {

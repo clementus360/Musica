@@ -4,7 +4,7 @@
 
 body {
   background: linear-gradient(#1D2123, #1A1E1F);
-  @apply w-screen h-max sm:h-screen bg-no-repeat pb-24 font-Quicksand text-white
+  @apply w-screen h-max sm:h-max bg-no-repeat font-Quicksand text-white
 }
 
 @font-face {
