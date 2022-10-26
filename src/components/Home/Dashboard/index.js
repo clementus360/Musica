@@ -1,11 +1,12 @@
+import { useSelector } from "react-redux";
+
 import { Display } from "./display";
 import { TopCharts } from "./topCharts";
 
-import profile1 from "./src/Ellipse 2.png"
-import profile2 from "./src/Ellipse 3.png"
-import profile3 from "./src/Ellipse 4.png"
-import profile4 from "./src/Ellipse 5.png"
-import chartImage from './src/Lead-image.png'
+import profile1 from "./src/Ellipse 2.jpg"
+import profile2 from "./src/Ellipse 3.jpg"
+import profile3 from "./src/Ellipse 4.jpg"
+import profile4 from "./src/Ellipse 5.jpg"
 
 export const Dashboard = () => {
 
@@ -34,29 +35,7 @@ export const Dashboard = () => {
 		]
 	}
 
-  const charts = [
-    {
-      id:'1',
-      name: 'Golden age of 80s',
-      artist: 'Sean Swadder',
-      duration: '2:34:45',
-      image: chartImage,
-    },
-    {
-      id:'2',
-      name: 'Reggae "n" blues',
-      artist: 'DJ Yk Mule',
-      duration: '1:02:42',
-      image: chartImage,
-    },
-    {
-      id:'3',
-      name: "Tommorow's tunes",
-      artist: 'Obi Datti',
-      duration: '2:01:25',
-      image: chartImage,
-    },
-  ]
+  const charts = useSelector(state => state.albums)
 
   return (
     <section className="flex flex-col w-screen sm:flex-row gap-6">

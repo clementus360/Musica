@@ -1,15 +1,12 @@
 import { useState } from "react"
+import { useSelector } from "react-redux"
+
 import { Tag } from "../components/Collections/tag"
 import { CollectionCard } from "../components/Collections/collectionCard"
 
-import image1 from "./src/Rectangle 14 (1).png"
-import image2  from "./src/Rectangle 14.png"
-import image3 from "./src/Rectangle 14 (2).png"
-import image4 from "./src/Rectangle 14 (3).png"
-import image5 from "./src/Rectangle 14 (4).png"
-
 export const Collections = () => {
   const [active, setActive]  = useState(1)
+  const collection = useSelector(state => state.collection)
 
   const tags = [
     {
@@ -19,83 +16,6 @@ export const Collections = () => {
     {
       id: 2,
       title: 'Likes'
-    },
-    {
-      id: 3,
-      title: 'Favourites'
-    }
-  ]
-
-  const collections = [
-    {
-      id:  1,
-      name: 'Life in a bubble',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image2
-    },
-    {
-      id:  2,
-      name: 'Mountain',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image1
-    },
-    {
-      id:  3,
-      name: 'Limits',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image3
-    },
-    {
-      id:  4,
-      name: "Everything's black",
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image4
-    },
-    {
-      id:  5,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
-    },
-    {
-      id:  6,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
-    },
-    {
-      id:  6,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
-    },
-    {
-      id:  6,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
-    },
-    {
-      id:  6,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
-    },
-    {
-      id:  6,
-      name: 'Cancelled',
-      artist: 'The van',
-      duration: '24k Likes',
-      image: image5
     },
   ]
 
@@ -115,19 +35,19 @@ export const Collections = () => {
   const displayCollections = (collections) => {
     return collections.map((collection) => {
       return (
-        <CollectionCard key={collection.id} collection={collection} />
+        <CollectionCard key={collection.id} album={collection} />
       );
     });
   };
 
   return (
-	<section className="flex flex-col h-max min-h-[100vh] gap-8 sm:h-full ml-0 pt-24 m-auto sm:pl-32 2xl:pt-40 2xl:pl-44 pb-24">
+	<section className="flex flex-col h-max min-h-[100vh] gap-8 sm:h-full ml-0 pt-24 m-auto sm:pl-32 2xl:pt-40 2xl:pl-44 pb-32">
     <div className="w-screen sm:w-max flex gap-4 justify-center">
       {displayTags(tags)}
     </div>
 
     <div className="flex flex-wrap gap-8 h-full m-auto sm:m-0 w-11/12  overflow-scroll">
-      {displayCollections(collections)}
+      {collection && displayCollections(collection)}
     </div>
 
   </section>

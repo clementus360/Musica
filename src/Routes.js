@@ -11,7 +11,7 @@ const Routes = () => {
       children: [
         { path: "", element: <Home /> },
         { path: "collections", element: <Collections /> },
-        { path: "album", element: <Album /> },
+        { path: "album/:albumId", element: <Album /> },
       ],
     },
 

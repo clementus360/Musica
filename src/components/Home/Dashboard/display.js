@@ -8,7 +8,8 @@ export const Display = (props) => {
     return profiles.map((profile) => {
       return (
         <img
-          className="w-10 h-10 rounded-full"
+          className={`relative top-0 w-10 min-h-[2.5rem] h-10 rounded-full`}
+          style={{left: `-${profile.id*3}px`}}
           src={profile.src}
           key={profile.id}
           alt="profile"
@@ -35,7 +36,7 @@ export const Display = (props) => {
         </div>
 
         <div className="flex gap-4 items-center">
-          <div className="flex">{displayLikes(playlist.likesTemplate)}</div>
+          <div className="relative w-28 flex">{displayLikes(playlist.likesTemplate)}</div>
           <HeartIcon />
           <p className="font-light text-xs xs:text-sm 2xl:text-xl 4xl:text-3xl">
             {playlist.likes}
