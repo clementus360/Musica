@@ -23,9 +23,11 @@ const initialState = [
 	    songNumber: 64,
 	    totalLength: 16,
 		likes: 24,
+		liked:false,
 	    songs: [
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 1,
 				name: 'Let me love you',
 				image: image1,
 				artist: 'Krisx',
@@ -33,9 +35,11 @@ const initialState = [
 				duration: '2:02',
 				audio: argonne,
 				likes: 3,
+				liked:false,
 			},
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 1,
 				name: 'Watin man go do',
 				image: image2,
 				artist: 'Krisx',
@@ -43,6 +47,7 @@ const initialState = [
 				duration: '4:42',
 				audio: diving,
 				likes: 1,
+				liked:false,
 			},
 		]
 	},
@@ -55,9 +60,11 @@ const initialState = [
 	    songNumber: 68,
 	    totalLength: 12,
 		likes: 12,
+		liked:false,
 	    songs: [
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 2,
 				name: 'Nobody',
 				image: image3,
 				artist: 'Burna',
@@ -65,9 +72,11 @@ const initialState = [
 				duration: '2:30',
 				audio: horror,
 				likes: 20,
+				liked:false,
 			},
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 2,
 				name: 'Closer',
 				image: image4,
 				artist: 'Burna',
@@ -75,6 +84,7 @@ const initialState = [
 				duration: '3:23',
 				audio: journey,
 				likes: 2,
+				liked:false,
 			}
 		]
 	},
@@ -87,9 +97,11 @@ const initialState = [
 	    songNumber: 68,
 	    totalLength: 12,
 		likes: 16,
+		liked:false,
 	    songs: [
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 3,
 				name: 'Nobody',
 				image: image3,
 				artist: 'Ybee',
@@ -97,9 +109,11 @@ const initialState = [
 				duration: '2:30',
 				audio: somber,
 				likes: 20,
+				liked:false,
 			},
 			{
 				id: Math.floor(Math.random() * 10000),
+				albumId: 3,
 				name: 'Closer',
 				image: image4,
 				artist: 'Ybee',
@@ -107,6 +121,7 @@ const initialState = [
 				duration: '3:23',
 				audio: oneStep,
 				likes: 2,
+				liked:false,
 			}
 		]
 	},
@@ -120,11 +135,18 @@ export const albums = createSlice({
 			return state = action.payload
 		},
 		likeSong: (state, action) => {
-			const index = state.indexOf(action.payload)
-			console.log(index)
-		}
+			const albumIndex = state.findIndex((album => album.id === action.payload.albumId))
+			const songIndex = state[albumIndex].songs.findIndex(song => song.id === action.payload.id)
+			state[albumIndex].songs[songIndex].likes = state[albumIndex].songs[songIndex].likes + 1
+			state[albumIndex].songs[songIndex].liked = true
+		},
+		likeAlbum: (state, action) => {
+			const albumIndex = state.findIndex((album => album.id === action.payload.id))
+			state[albumIndex].likes = state[albumIndex].likes + 1
+			state[albumIndex].liked = true
+		},
 	}
 })
 
-export const { likeSong, setCurretSong } = albums.actions;
+export const { likeAlbum, likeSong, setCurretSong } = albums.actions;
 export default albums.reducer;

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 import { addAlbum } from "../../redux/playlistSlice"
+import { addSong } from "../../redux/playlistSlice"
 import { setCurretSong } from "../../redux/currentSlice"
 
 
@@ -13,7 +14,11 @@ export const CollectionCard = ({album}) => {
 
 	const playAlbum = () => {
 		const last = playlist.length
-		dispatch(addAlbum(album))
+		if (album.songs) {
+			dispatch(addAlbum(album))
+		} else {
+			dispatch(addSong(album))
+		}
 		dispatch(setCurretSong(last))
 	}
 

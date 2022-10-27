@@ -1,13 +1,19 @@
+import { useState } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { putCollection } from '../../redux/collectionSlice'
 import { addAlbum } from '../../redux/playlistSlice'
 import { setCurretSong } from '../../redux/currentSlice'
+import { likeAlbum } from '../../redux/albumSlice'
 
 import { AddMusicIcon } from './src/addMusicIcon'
 import { PlayIcon } from './src/playIcon'
 import { RedHeartIcon } from './src/RedHeartIcon'
+import { putlikes } from '../../redux/likeSlice'
+import { HeartOutlineIcon } from '../Home/Dashboard/src/heartOutlineIcon'
 
 export const AlbumDisplay = ({album}) => {
+	const  [liked, setLiked] = useState(album.liked)
 	const collection = useSelector(state => state.collection)
 	const playlist = useSelector(state => state.playlist)
 	const dispatch = useDispatch()
@@ -21,6 +27,16 @@ export const AlbumDisplay = ({album}) => {
 		const last = playlist.length
 		dispatch(addAlbum(album))
 		dispatch(setCurretSong(last))
+	}
+
+	const like = () => {
+		dispatch(likeAlbum(album))
+		dispatch(putlikes(album))
+		setLiked(true)
+	}
+
+	const heart = () => {
+		return liked? <RedHeartIcon />:<HeartOutlineIcon />
 	}
 
   return (
@@ -49,8 +65,8 @@ export const AlbumDisplay = ({album}) => {
 					<p>Add to collection</p>
 				</button>
 
-				<button className="cursor-pointer flex items-center gap-2 sm:gap-4 p-3 sm:p-2 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-full bg-opacity-50 backdrop-blur-lg transition-all">
-					<RedHeartIcon />
+				<button disabled={liked} onClick={like} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-3 sm:p-3 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-full bg-opacity-50 backdrop-blur-lg transition-all">
+					{heart()}
 				</button>
 			</div>
 		</div>

@@ -1,7 +1,28 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import { useDispatch} from 'react-redux'
+import { likeAlbum } from '../../../redux/albumSlice'
+import { putlikes } from '../../../redux/likeSlice'
+
 import { HeartOutlineIcon } from './src/heartOutlineIcon'
+import { HeartFilledIcon } from './src/heartFilledIcon copy'
 
 export const ChartCard = ({details}) => {
+	const  [liked, setLiked] = useState(details.liked)
+	const dispatch = useDispatch()
+
+
+	const like = () => {
+		dispatch(likeAlbum(details))
+		dispatch(putlikes(details))
+		setLiked(true)
+	}
+
+	const likeButton = () => {
+		return liked? <HeartFilledIcon />:<HeartOutlineIcon />
+	}
+
   return (
 	<div className="grid grid-rows-2 grid-cols-2 sm:grid-rows-1 sm:grid-cols-[1fr_2fr_1fr] gap-4 sm:gap-2 2xl:gap-6 content-between sm:items-center bg-darkGrey p-4 pl-6 pr-8 4xl:p-8 4xl:pl-12 4xl:pr-16 rounded-3xl w-max sm:w-full">
 
@@ -19,8 +40,8 @@ export const ChartCard = ({details}) => {
 			<p className='text-sm 2xl:text-xl 4xl:text-3xl mt-4 sm:mt-0'>{details.totalLength} hours</p>
 		</div>
 		<div className='justify-self-end col-start-2 row-start-1 sm:ml-16 2xl:ml-20 4xl:ml-24 sm:col-auto sm:row-auto'>
-			<div className='border-[1px] border-lightGrey w-max p-2 rounded-full' >
-				<HeartOutlineIcon />
+			<div onClick={liked? null:like} className='border-[1px] hover:scale-110 border-lightGrey w-max p-2 rounded-full cursor-pointer' >
+				{likeButton()}
 			</div>
 		</div>
 	</div>
