@@ -36,6 +36,12 @@ export const Dashboard = () => {
 	}
 
   const charts = useSelector(state => state.albums)
+  console.log(charts)
+  let topCharts = []
+
+	for(let i=0; i<3; i++) {
+		topCharts.push(charts[i])
+	}
 
   return (
     <section className="flex flex-col w-screen sm:flex-row gap-6">

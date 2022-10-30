@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 import { Menu } from "./menu"
 
@@ -20,7 +21,7 @@ export const Header = () => {
 			<div onClick={toggleMenu}>
 				<MenuIcon />
 			</div>
-			<Logo />
+			<Link to="/"><Logo /></Link>
 		</div>
 		<SearchIcon/>
 		<input type="search" name="q" placeholder="Search artists" id="site-search" className="hidden sm:block bg-primary text-lightGrey font-light text-sm 2xl:text-xl 4xl:text-3xl"/>

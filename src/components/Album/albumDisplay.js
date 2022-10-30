@@ -19,7 +19,7 @@ export const AlbumDisplay = ({album}) => {
 	const dispatch = useDispatch()
 
 	const addCollection = () => {
-		if (collection.indexOf(album)==-1)
+		if (collection.indexOf(album)===-1)
 			dispatch(putCollection(album))
 	}
 
@@ -55,17 +55,17 @@ export const AlbumDisplay = ({album}) => {
 				</p>
 			</div>
 			<div className='flex gap-2 sm:gap-4 w-10/12 sm:w-max'>
-				<button onClick={playAlbum} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-2 sm:p-2 pl-2 pr-2 sm:pl-4 sm:pr-4 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-4xl bg-opacity-50 backdrop-blur-lg transition-all">
+				<button onClick={playAlbum} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-2 sm:p-2 pl-2 pr-2 sm:pl-4 sm:pr-4 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-4xl bg-opacity-70 backdrop-blur-lg transition-all">
 					<PlayIcon />
 					<p>Play all</p>
 				</button>
 
-				<button onClick={addCollection} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-2 sm:p-2 pl-2 pr-2 sm:pl-4 sm:pr-4 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-4xl bg-opacity-50 backdrop-blur-lg transition-all">
+				<button onClick={addCollection} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-2 sm:p-2 pl-2 pr-2 sm:pl-4 sm:pr-4 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-4xl bg-opacity-20 backdrop-blur-lg transition-all">
 					<AddMusicIcon />
 					<p>Add to collection</p>
 				</button>
 
-				<button disabled={liked} onClick={like} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-3 sm:p-3 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-full bg-opacity-50 backdrop-blur-lg transition-all">
+				<button disabled={liked} onClick={like} className="cursor-pointer flex items-center gap-2 sm:gap-4 p-3 sm:p-3 font-thin text-sm 2xl:text-xl 4xl:text-3xl text-white bg-lightGrey hover:bg-darkGrey w-max rounded-full bg-opacity-20 backdrop-blur-lg transition-all">
 					{heart()}
 				</button>
 			</div>

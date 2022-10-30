@@ -6,8 +6,7 @@ export const collection = createSlice({
 	reducers: {
 		putCollection: (state, action) => {
 			state = state.push(action.payload)
-		}
-
+		},
 	}
 })
 
