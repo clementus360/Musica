@@ -36,7 +36,6 @@ export const Dashboard = () => {
 	}
 
   const charts = useSelector(state => state.albums)
-  console.log(charts)
   let topCharts = []
 
 	for(let i=0; i<3; i++) {

@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 import { HomeIcon } from "./src/homeIcon";
@@ -7,7 +8,20 @@ import { ProfileIcon } from "./src/profileIcon";
 import { RadioIcon } from "./src/radioIcon";
 import { VideosIcon } from "./src/videosIcon";
 
+import { logout } from "../../redux/authenticationSlice";
+import { getAuth } from "@firebase/auth";
+
 export const Menu = ({visible, toggleMenu}) => {
+
+	const dispatch = useDispatch()
+
+	const logOutHelper = () => {
+		const auth = getAuth()
+		auth.signOut().then(() => {
+			dispatch(logout)
+		})
+	}
+
   return (
 	<div className='fixed w-8/12 h-screen sm:hidden left-0 top-0 z-40 flex flex-col bg-primary pl-8 gap-8 text-lightGrey transition-all'
 		style={{
@@ -22,7 +36,7 @@ export const Menu = ({visible, toggleMenu}) => {
 		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><RadioIcon active={useLocation().pathname === "/radio"? true:false}/> Radio</Link>
 		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><VideosIcon active={useLocation().pathname === "/videos"? true:false}/> Music videos</Link>
 		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><ProfileIcon/> Profile</Link>
-		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><LogoutIcon/> Log out</Link>
+		<Link  className="flex gap-4 items-center" to='/' onClick={() => logOutHelper()}><LogoutIcon/> Log out</Link>
 	</div>
   )
 }
