@@ -8,7 +8,9 @@ import { Auth } from "./pages/auth";
 import { useEffect } from "react";
 import { login, logout } from "./redux/authenticationSlice";
 import { getAuth } from "@firebase/auth";
+import Profile from "./pages/profile";
 import { firebaseApp } from "./utils/firebase";
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Routes = () => {
   const authState = useSelector(state => state.authentication)
@@ -40,6 +42,7 @@ const Routes = () => {
         { path: "", element: authState.isLogged? <Home />:<Auth /> },
         { path: "collections", element: <Collections /> },
         { path: "album/:albumId", element: <Album /> },
+        { path: "profile", element: <Profile /> },
       ],
     },
 

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAuth, createUserWithEmailAndPassword, updateProfile, browserLocalPersistence, setPersistence } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+
 import { login } from "../../redux/authenticationSlice";
+import { createAvatar } from '@dicebear/core';
+import { identicon } from '@dicebear/collection';
 
 export const SignUp = ({setPage}) => {
   const [username, setUsername] = useState("");
@@ -67,21 +71,43 @@ export const SignUp = ({setPage}) => {
     return true;
   };
 
+  const GenerateProfileImageLink = async (uid) => {
+	let link
+	const storage = getStorage()
+
+	const avatar = createAvatar(identicon, {
+		seed: uid,
+		backgroundColor: ["ffffff"]
+	  });
+
+	const imageObject = await avatar.png();
+
+
+	const profilePictureRef = ref(storage, `profile/${uid}.png`)
+
+	const ImageUrl = uploadBytes(profilePictureRef, await imageObject.toArrayBuffer()).then(async (snapshot) => {
+		console.log("worked:", snapshot.metadata.fullPath)
+		return await getDownloadURL(profilePictureRef)
+	})
+
+	return ImageUrl
+  }
+
   const handleSignup = (e) => {
     e.preventDefault();
     if (validateForm()) {
 		const auth = getAuth();
 		setPersistence(auth, browserLocalPersistence).then(() => {
 			return createUserWithEmailAndPassword(auth, email, password)
-		}).then(({user}) => {
-			console.log(user)
-			updateProfile(user, {displayName: username})
-			const userObject = {
-				username: user.displayName,
-				email: user.displayName,
-				id: user.uid,
-				image: user.photoURL,
-			}
+		}).then(async ({user}) => {
+			const userObject = await updateProfile(user, {displayName: username, photoURL: await GenerateProfileImageLink(user.uid)}).then(() => {
+				return {
+					username:  user.displayName,
+					email:  user.displayName,
+					id:  user.uid,
+					image: user.photoURL,
+				}
+			})
 			dispatch(login(userObject))
 		}).catch((err) => {
 			setError(err.message)

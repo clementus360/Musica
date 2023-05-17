@@ -33,7 +33,7 @@ export const Sidebar = () => {
 		<VideosIcon active={useLocation().pathname === "/videos"? true:false}/>
 	  </div>
 	  <div className="flex flex-col gap-10 2xl:gap-10 3xl:gap-14 items-center w-max bg-darkGrey rounded-full p-2 pt-6 pb-6" >
-		<ProfileIcon/>
+	  	<Link to='/profile'><ProfileIcon/></Link>
 		<Link to='/' onClick={() => logOutHelper()}><LogoutIcon/></Link>
 	  </div>
     </section>

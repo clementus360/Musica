@@ -14,9 +14,12 @@ export const authentication = createSlice({
 		logout: state => {
 			state.user = null
 			state.isLogged = false
+		},
+		updateImage: (state,action) => {
+			state.user.image = action.payload
 		}
 	}
 })
 
-export const { login,logout } = authentication.actions;
+export const { login,logout,updateImage } = authentication.actions;
 export default authentication.reducer;

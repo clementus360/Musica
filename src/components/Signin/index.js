@@ -56,7 +56,6 @@ export const SignIn = ({setPage}) =>  {
 		setPersistence(auth, browserLocalPersistence).then(() => {
 			return signInWithEmailAndPassword(auth, email, password)
 		}).then( ({user}) => {
-			console.log(user)
 			const userObject = {
 				username: user.displayName,
 				email: user.displayName,

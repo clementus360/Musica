@@ -10,6 +10,7 @@ import { VideosIcon } from "./src/videosIcon";
 
 import { logout } from "../../redux/authenticationSlice";
 import { getAuth } from "@firebase/auth";
+import { Tooltip } from 'react-tooltip'
 
 export const Menu = ({visible, toggleMenu}) => {
 
@@ -35,7 +36,7 @@ export const Menu = ({visible, toggleMenu}) => {
 		<Link  className="flex gap-4 items-center" to='/collections' onClick={toggleMenu}><PlaylistIcon  active={useLocation().pathname === "/collections"? true:false}/>My collections</Link>
 		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><RadioIcon active={useLocation().pathname === "/radio"? true:false}/> Radio</Link>
 		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><VideosIcon active={useLocation().pathname === "/videos"? true:false}/> Music videos</Link>
-		<Link  className="flex gap-4 items-center" to='/' onClick={toggleMenu}><ProfileIcon/> Profile</Link>
+		<Link  className="flex gap-4 items-center" to='/profile' onClick={toggleMenu}><ProfileIcon/> Profile</Link>
 		<Link  className="flex gap-4 items-center" to='/' onClick={() => logOutHelper()}><LogoutIcon/> Log out</Link>
 	</div>
   )
