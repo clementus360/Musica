@@ -23,7 +23,7 @@ const Routes = () => {
       if (user) {
         const userObject = {
           username: user.displayName,
-          email: user.displayName,
+          email: user.email,
           id: user.uid,
           image: user.photoURL,
         }

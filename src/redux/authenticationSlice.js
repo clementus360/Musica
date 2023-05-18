@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 export const authentication = createSlice({
 	name: 'authentication',
@@ -17,9 +18,12 @@ export const authentication = createSlice({
 		},
 		updateImage: (state,action) => {
 			state.user.image = action.payload
+		},
+		updateUsername: (state,action) => {
+			state.user.username = action.payload
 		}
 	}
 })
 
-export const { login,logout,updateImage } = authentication.actions;
+export const { login,logout,updateImage,updateUsername } = authentication.actions;
 export default authentication.reducer;

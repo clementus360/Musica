@@ -103,7 +103,7 @@ export const SignUp = ({setPage}) => {
 			const userObject = await updateProfile(user, {displayName: username, photoURL: await GenerateProfileImageLink(user.uid)}).then(() => {
 				return {
 					username:  user.displayName,
-					email:  user.displayName,
+					email:  user.email,
 					id:  user.uid,
 					image: user.photoURL,
 				}
