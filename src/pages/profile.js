@@ -54,7 +54,7 @@ export default function Profile() {
 	<div className="grid py-56 place-items-center min-h-screen h-max">
 		{isImageSelector && <ImageSelector setIsImageSelector={setIsImageSelector} />}
 		<section className="flex flex-col gap-4 items-center">
-			<img className="w-40 rounded-full" src={auth.user.image} alt={auth.user.username} />
+			<div className='flex items-center justify-center aspect-square max-h-56'><img className="max-h-full max-w-full object-cover aspect-square rounded-full" src={auth.user.image} alt={auth.user.username} /></div>
 			<button onClick={() => handleUpload()} className="bg-darkGrey shadow-lg border-2 py-2 px-4 rounded-lg border-bluish font-medium">Edit image</button>
 		</section>
 		<section className="p-8 bg-darkGrey shadow-lg w-4/12" >
