@@ -44,6 +44,7 @@ export const Player = () => {
 
   useEffect(()  => {
     if(playlist[currentSong]) {
+      try {
       audio.src = playlist[currentSong].audio
       audio.play()
       audio.onloadedmetadata  = () => {
@@ -57,6 +58,9 @@ export const Player = () => {
         }
       }
       setIsPlayed(true)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }, [playlist,currentSong])
 

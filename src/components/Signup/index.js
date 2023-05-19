@@ -72,7 +72,6 @@ export const SignUp = ({setPage}) => {
   };
 
   const GenerateProfileImageLink = async (uid) => {
-	let link
 	const storage = getStorage()
 
 	const avatar = createAvatar(identicon, {

@@ -6,11 +6,9 @@ import { Menu } from "./menu"
 import { Logo } from "./src/logo"
 import { MenuIcon } from "./src/menuIcon"
 import { SearchIcon } from "./src/searchIcon"
-import { useSelector } from "react-redux";
 
 export const Header = () => {
 	const [isMenu, setIsMenu] = useState(false)
-	const auth = useSelector(state => state.authentication)
 
 	const toggleMenu = () => {
 		setIsMenu(menu => menu? false:true)
